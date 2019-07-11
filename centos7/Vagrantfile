@@ -3,6 +3,7 @@ $initScript = <<SCRIPT
  systemctl enable httpd
  systemctl start httpd
  yum install java-1.8.0-openjdk-devel -y 
+ yum install git -y
  
 SCRIPT
 
