@@ -1,0 +1,21 @@
+$initScript = <<SCRIPT
+ yum install -y httpd
+ systemctl enable httpd
+ systemctl start httpd
+ yum install java-1.8.0-openjdk-devel -y 
+ 
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.hostname = "usman"
+  config.vm.network "private_network", ip: "192.168.56.100"
+  
+  config.vm.provision "shell", inline: $initScript
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = "2"
+  end
+  
+end
