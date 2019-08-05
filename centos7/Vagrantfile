@@ -4,6 +4,16 @@ $initScript = <<SCRIPT
  systemctl start httpd
  yum install java-1.8.0-openjdk-devel -y 
  yum install git -y
+ yum install wget -y
+ wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+ tar -xvf go1.12.7.linux-amd64.tar.gz
+ cd go/src
+ mkdir github.com
+ cd ~ 
+ echo 'export PATH="$PATH:/root/go/"' >> ~/.bashrc
+ 
+ 
+ 
  
 SCRIPT
 
